@@ -1,0 +1,24 @@
+version: 2
+updates:
+  # Monitor npm dependencies for Umami
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    # Only update minor/patch versions, not major (to avoid breaking changes)
+    allow:
+      - dependency-type: "production"
+      - dependency-type: "development"
+    
+  # Monitor GitHub Actions workflows
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 3
+    
