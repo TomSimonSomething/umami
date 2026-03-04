@@ -106,7 +106,7 @@ jobs:
           echo "Computed Docker Hub tags: $DOCKER_TAGS"
 
       - name: Build and push to GHCR
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           platforms: linux/amd64,linux/arm64
@@ -117,7 +117,7 @@ jobs:
 
       - name: Build and push to Docker Hub
         if: github.repository == 'umami-software/umami'
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           platforms: linux/amd64,linux/arm64
